@@ -1,0 +1,23 @@
+<h1>Welcome to {{ hotelName | titlecase }}!</h1>
+
+<section [hidden]="hideRooms">
+  <h3>Number of Free Rooms:</h3>
+  <div
+    [innerText]="numberOfRooms"
+    [ngStyle]="{ color: rooms.availableRooms > 0 ? 'green' : 'red' }"
+  ></div>
+</section>
+
+<!-- {{ rooms?.availableRooms ?? "No rooms" }} -->
+<!-- {{ roomList | json }} -->
+<!-- *ngFor="let room of roomList | slice : 0:2; let e = even; let o = odd; let i = index" -->
+
+<div *ngIf="selectedRoom">
+  {{ selectedRoom | json }}
+</div>
+
+<section *ngIf="rooms.availableRooms > 0">
+   <hinv-rooms-list [rooms]="roomList" (selectedRoom)="selectRoom($event)"></hinv-rooms-list>
+</section>
+
+<button class="btn btn-outline-primary" (click)="toggle()">Toggle Rooms</button>
