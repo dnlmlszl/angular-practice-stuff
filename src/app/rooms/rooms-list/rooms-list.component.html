@@ -1,3 +1,5 @@
+<h2>{{ title }}</h2>
+
 <table class="table table-striped table-hover">
   <thead>
     <tr>
@@ -24,9 +26,14 @@
       <td>{{ room.amenities }}</td>
       <td>{{ room.price | currency : "GBP" }}</td>
       <td>{{ room.checkinTime | date : "YYYY-MM-dd" }}</td>
-      <td>{{ room.rating | number : '1.1-2' : 'en-us' }}</td>
+      <td>{{ room.rating | number : "1.1-2" : "en-us" }}</td>
       <td>
-        <button class="btn btn-outline-warning text-white" (click)="selectRoom(room)">Select</button>
+        <button
+          class="btn btn-outline-warning text-white"
+          (click)="selectRoom(room)"
+        >
+          Select
+        </button>
       </td>
     </tr>
   </tbody>
